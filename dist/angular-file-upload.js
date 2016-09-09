@@ -60,58 +60,58 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	var _config = __webpack_require__(1);
-	
+
 	var _config2 = _interopRequireDefault(_config);
-	
+
 	var _options = __webpack_require__(2);
-	
+
 	var _options2 = _interopRequireDefault(_options);
-	
+
 	var _FileUploader = __webpack_require__(3);
-	
+
 	var _FileUploader2 = _interopRequireDefault(_FileUploader);
-	
+
 	var _FileLikeObject = __webpack_require__(4);
-	
+
 	var _FileLikeObject2 = _interopRequireDefault(_FileLikeObject);
-	
+
 	var _FileItem = __webpack_require__(5);
-	
+
 	var _FileItem2 = _interopRequireDefault(_FileItem);
-	
+
 	var _FileDirective = __webpack_require__(6);
-	
+
 	var _FileDirective2 = _interopRequireDefault(_FileDirective);
-	
+
 	var _FileSelect = __webpack_require__(7);
-	
+
 	var _FileSelect2 = _interopRequireDefault(_FileSelect);
-	
+
 	var _FileDrop = __webpack_require__(8);
-	
+
 	var _FileDrop2 = _interopRequireDefault(_FileDrop);
-	
+
 	var _FileOver = __webpack_require__(9);
-	
+
 	var _FileOver2 = _interopRequireDefault(_FileOver);
-	
+
 	var _FileSelect3 = __webpack_require__(10);
-	
+
 	var _FileSelect4 = _interopRequireDefault(_FileSelect3);
-	
+
 	var _FileDrop3 = __webpack_require__(11);
-	
+
 	var _FileDrop4 = _interopRequireDefault(_FileDrop3);
-	
+
 	var _FileOver3 = __webpack_require__(12);
-	
+
 	var _FileOver4 = _interopRequireDefault(_FileOver3);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	angular.module(_config2.default.name, []).value('fileUploaderOptions', _options2.default).factory('FileUploader', _FileUploader2.default).factory('FileLikeObject', _FileLikeObject2.default).factory('FileItem', _FileItem2.default).factory('FileDirective', _FileDirective2.default).factory('FileSelect', _FileSelect2.default).factory('FileDrop', _FileDrop2.default).factory('FileOver', _FileOver2.default).directive('nvFileSelect', _FileSelect4.default).directive('nvFileDrop', _FileDrop4.default).directive('nvFileOver', _FileOver4.default).run(['FileUploader', 'FileLikeObject', 'FileItem', 'FileDirective', 'FileSelect', 'FileDrop', 'FileOver', function (FileUploader, FileLikeObject, FileItem, FileDirective, FileSelect, FileDrop, FileOver) {
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	angular.module(_config2['default'].name, []).value('fileUploaderOptions', _options2['default']).factory('FileUploader', _FileUploader2['default']).factory('FileLikeObject', _FileLikeObject2['default']).factory('FileItem', _FileItem2['default']).factory('FileDirective', _FileDirective2['default']).factory('FileSelect', _FileSelect2['default']).factory('FileDrop', _FileDrop2['default']).factory('FileOver', _FileOver2['default']).directive('nvFileSelect', _FileSelect4['default']).directive('nvFileDrop', _FileDrop4['default']).directive('nvFileOver', _FileOver4['default']).run(['FileUploader', 'FileLikeObject', 'FileItem', 'FileDirective', 'FileSelect', 'FileDrop', 'FileOver', function (FileUploader, FileLikeObject, FileItem, FileDirective, FileSelect, FileDrop, FileOver) {
 	    // only for compatibility
 	    FileUploader.FileLikeObject = FileLikeObject;
 	    FileUploader.FileItem = FileItem;
@@ -134,11 +134,11 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.default = {
+	exports['default'] = {
 	    url: '/',
 	    alias: 'file',
 	    headers: {},
@@ -159,20 +159,20 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.default = __identity;
-	
+	exports['default'] = __identity;
+
 	var _config = __webpack_require__(1);
-	
+
 	var _config2 = _interopRequireDefault(_config);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	var _angular = angular;
 	var copy = _angular.copy;
 	var extend = _angular.extend;
@@ -185,7 +185,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function __identity(fileUploaderOptions, $rootScope, $http, $window, $timeout, FileLikeObject, FileItem) {
 	    var File = $window.File;
 	    var FormData = $window.FormData;
-	
+
 	    var FileUploader = function () {
 	        /**********************
 	         * PUBLIC
@@ -195,19 +195,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Object} [options]
 	         * @constructor
 	         */
-	
+
 	        function FileUploader(options) {
 	            _classCallCheck(this, FileUploader);
-	
+
 	            var settings = copy(fileUploaderOptions);
-	
+
 	            extend(this, settings, options, {
 	                isUploading: false,
 	                _nextIndex: 0,
 	                _failFilterIndex: -1,
 	                _directives: { select: [], drop: [], over: [] }
 	            });
-	
+
 	            // add default filters
 	            this.filters.unshift({ name: 'queueLimit', fn: this._queueLimitFilter });
 	            this.filters.unshift({ name: 'folder', fn: this._folderFilter });
@@ -218,19 +218,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Object} [options]
 	         * @param {Array<Function>|String} filters
 	         */
-	
-	
+
+
 	        FileUploader.prototype.addToQueue = function addToQueue(files, options, filters) {
 	            var _this = this;
-	
+
 	            var list = this.isArrayLikeObject(files) ? files : [files];
 	            var arrayOfFilters = this._getFilters(filters);
 	            var count = this.queue.length;
 	            var addedFileItems = [];
-	
+
 	            forEach(list, function (some /*{File|HTMLInputElement|Object}*/) {
 	                var temp = new FileLikeObject(some);
-	
+
 	                if (_this._isValidFile(temp, arrayOfFilters, options)) {
 	                    var fileItem = new FileItem(_this, some, options);
 	                    addedFileItems.push(fileItem);
@@ -241,12 +241,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    _this._onWhenAddingFileFailed(temp, filter, options);
 	                }
 	            });
-	
+
 	            if (this.queue.length !== count) {
 	                this._onAfterAddingAll(addedFileItems);
 	                this.progress = this._getTotalProgress();
 	            }
-	
+
 	            this._render();
 	            if (this.autoUpload) this.uploadAll();
 	        };
@@ -254,8 +254,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * Remove items from the queue. Remove last: index = -1
 	         * @param {FileItem|Number} value
 	         */
-	
-	
+
+
 	        FileUploader.prototype.removeFromQueue = function removeFromQueue(value) {
 	            var index = this.getIndexOfItem(value);
 	            var item = this.queue[index];
@@ -267,8 +267,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * Clears the queue
 	         */
-	
-	
+
+
 	        FileUploader.prototype.clearQueue = function clearQueue() {
 	            while (this.queue.length) {
 	                this.queue[0].remove();
@@ -279,19 +279,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * Uploads a item from the queue
 	         * @param {FileItem|Number} value
 	         */
-	
-	
+
+
 	        FileUploader.prototype.uploadItem = function uploadItem(value) {
 	            var index = this.getIndexOfItem(value);
 	            var item = this.queue[index];
 	            var transport = this.isHTML5 ? '_xhrTransport' : '_iframeTransport';
-	
+
 	            item._prepareToUploading();
 	            if (this.isUploading) return;
-	
+
 	            this._onBeforeUploadItem(item);
 	            if (item.isCancel) return;
-	
+
 	            item.isUploading = true;
 	            this.isUploading = true;
 	            this[transport](item);
@@ -301,11 +301,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * Cancels uploading of item from the queue
 	         * @param {FileItem|Number} value
 	         */
-	
-	
+
+
 	        FileUploader.prototype.cancelItem = function cancelItem(value) {
 	            var _this2 = this;
-	
+
 	            var index = this.getIndexOfItem(value);
 	            var item = this.queue[index];
 	            var prop = this.isHTML5 ? '_xhr' : '_form';
@@ -328,14 +328,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * Uploads all not uploaded items of queue
 	         */
-	
-	
+
+
 	        FileUploader.prototype.uploadAll = function uploadAll() {
 	            var items = this.getNotUploadedItems().filter(function (item) {
 	                return !item.isUploading;
 	            });
 	            if (!items.length) return;
-	
+
 	            forEach(items, function (item) {
 	                return item._prepareToUploading();
 	            });
@@ -344,8 +344,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * Cancels all uploads
 	         */
-	
-	
+
+
 	        FileUploader.prototype.cancelAll = function cancelAll() {
 	            var items = this.getNotUploadedItems();
 	            forEach(items, function (item) {
@@ -358,8 +358,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @returns {Boolean}
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.prototype.isFile = function isFile(value) {
 	            return this.constructor.isFile(value);
 	        };
@@ -369,8 +369,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @returns {Boolean}
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.prototype.isFileLikeObject = function isFileLikeObject(value) {
 	            return this.constructor.isFileLikeObject(value);
 	        };
@@ -379,8 +379,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {*} value
 	         * @returns {Boolean}
 	         */
-	
-	
+
+
 	        FileUploader.prototype.isArrayLikeObject = function isArrayLikeObject(value) {
 	            return this.constructor.isArrayLikeObject(value);
 	        };
@@ -389,8 +389,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Item|Number} value
 	         * @returns {Number}
 	         */
-	
-	
+
+
 	        FileUploader.prototype.getIndexOfItem = function getIndexOfItem(value) {
 	            return isNumber(value) ? value : this.queue.indexOf(value);
 	        };
@@ -398,8 +398,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * Returns not uploaded items
 	         * @returns {Array}
 	         */
-	
-	
+
+
 	        FileUploader.prototype.getNotUploadedItems = function getNotUploadedItems() {
 	            return this.queue.filter(function (item) {
 	                return !item.isUploaded;
@@ -409,8 +409,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * Returns items ready for upload
 	         * @returns {Array}
 	         */
-	
-	
+
+
 	        FileUploader.prototype.getReadyItems = function getReadyItems() {
 	            return this.queue.filter(function (item) {
 	                return item.isReady && !item.isUploading;
@@ -421,11 +421,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * Destroys instance of FileUploader
 	         */
-	
-	
+
+
 	        FileUploader.prototype.destroy = function destroy() {
 	            var _this3 = this;
-	
+
 	            forEach(this._directives, function (key) {
 	                forEach(_this3._directives[key], function (object) {
 	                    object.destroy();
@@ -436,15 +436,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * Callback
 	         * @param {Array} fileItems
 	         */
-	
-	
+
+
 	        FileUploader.prototype.onAfterAddingAll = function onAfterAddingAll(fileItems) {};
 	        /**
 	         * Callback
 	         * @param {FileItem} fileItem
 	         */
-	
-	
+
+
 	        FileUploader.prototype.onAfterAddingFile = function onAfterAddingFile(fileItem) {};
 	        /**
 	         * Callback
@@ -452,30 +452,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Object} filter
 	         * @param {Object} options
 	         */
-	
-	
+
+
 	        FileUploader.prototype.onWhenAddingFileFailed = function onWhenAddingFileFailed(item, filter, options) {};
 	        /**
 	         * Callback
 	         * @param {FileItem} fileItem
 	         */
-	
-	
+
+
 	        FileUploader.prototype.onBeforeUploadItem = function onBeforeUploadItem(fileItem) {};
 	        /**
 	         * Callback
 	         * @param {FileItem} fileItem
 	         * @param {Number} progress
 	         */
-	
-	
+
+
 	        FileUploader.prototype.onProgressItem = function onProgressItem(fileItem, progress) {};
 	        /**
 	         * Callback
 	         * @param {Number} progress
 	         */
-	
-	
+
+
 	        FileUploader.prototype.onProgressAll = function onProgressAll(progress) {};
 	        /**
 	         * Callback
@@ -484,8 +484,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Number} status
 	         * @param {Object} headers
 	         */
-	
-	
+
+
 	        FileUploader.prototype.onSuccessItem = function onSuccessItem(item, response, status, headers) {};
 	        /**
 	         * Callback
@@ -494,8 +494,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Number} status
 	         * @param {Object} headers
 	         */
-	
-	
+
+
 	        FileUploader.prototype.onErrorItem = function onErrorItem(item, response, status, headers) {};
 	        /**
 	         * Callback
@@ -504,8 +504,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Number} status
 	         * @param {Object} headers
 	         */
-	
-	
+
+
 	        FileUploader.prototype.onCancelItem = function onCancelItem(item, response, status, headers) {};
 	        /**
 	         * Callback
@@ -514,14 +514,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Number} status
 	         * @param {Object} headers
 	         */
-	
-	
+
+
 	        FileUploader.prototype.onCompleteItem = function onCompleteItem(item, response, status, headers) {};
 	        /**
 	         * Callback
 	         */
-	
-	
+
+
 	        FileUploader.prototype.onCompleteAll = function onCompleteAll() {};
 	        /**********************
 	         * PRIVATE
@@ -532,16 +532,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @returns {Number}
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.prototype._getTotalProgress = function _getTotalProgress(value) {
 	            if (this.removeAfterUpload) return value || 0;
-	
+
 	            var notUploaded = this.getNotUploadedItems().length;
 	            var uploaded = notUploaded ? this.queue.length - notUploaded : this.queue.length;
 	            var ratio = 100 / this.queue.length;
 	            var current = (value || 0) * ratio / 100;
-	
+
 	            return Math.round(uploaded * ratio + current);
 	        };
 	        /**
@@ -550,8 +550,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @returns {Array<Function>}
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.prototype._getFilters = function _getFilters(filters) {
 	            if (!filters) return this.filters;
 	            if (isArray(filters)) return filters;
@@ -564,8 +564,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * Updates html
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.prototype._render = function _render() {
 	            if (!$rootScope.$$phase) $rootScope.$apply();
 	        };
@@ -575,8 +575,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @returns {Boolean}
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.prototype._folderFilter = function _folderFilter(item) {
 	            return !!(item.size || item.type);
 	        };
@@ -585,8 +585,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @returns {Boolean}
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.prototype._queueLimitFilter = function _queueLimitFilter() {
 	            return this.queue.length < this.queueLimit;
 	        };
@@ -598,11 +598,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @returns {Boolean}
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.prototype._isValidFile = function _isValidFile(file, filters, options) {
 	            var _this4 = this;
-	
+
 	            this._failFilterIndex = -1;
 	            return !filters.length ? true : filters.every(function (filter) {
 	                _this4._failFilterIndex++;
@@ -615,8 +615,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @returns {Boolean}
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.prototype._isSuccessCode = function _isSuccessCode(status) {
 	            return status >= 200 && status < 300 || status === 304;
 	        };
@@ -627,8 +627,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @returns {*}
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.prototype._transformResponse = function _transformResponse(response, headers) {
 	            var headersGetter = this._headersGetter(headers);
 	            forEach($http.defaults.transformResponse, function (transformFn) {
@@ -643,26 +643,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @see https://github.com/angular/angular.js/blob/master/src/ng/http.js
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.prototype._parseHeaders = function _parseHeaders(headers) {
 	            var parsed = {},
 	                key,
 	                val,
 	                i;
-	
+
 	            if (!headers) return parsed;
-	
+
 	            forEach(headers.split('\n'), function (line) {
 	                i = line.indexOf(':');
 	                key = line.slice(0, i).trim().toLowerCase();
 	                val = line.slice(i + 1).trim();
-	
+
 	                if (key) {
 	                    parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
 	                }
 	            });
-	
+
 	            return parsed;
 	        };
 	        /**
@@ -671,8 +671,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @returns {Function}
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.prototype._headersGetter = function _headersGetter(parsedHeaders) {
 	            return function (name) {
 	                if (name) {
@@ -686,14 +686,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {FileItem} item
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.prototype._xhrTransport = function _xhrTransport(item) {
 	            var _this5 = this;
-	
+
 	            var xhr = item._xhr = new XMLHttpRequest();
 	            var sendable;
-	
+
 	            if (!item.disableMultipart) {
 	                sendable = new FormData();
 	                forEach(item.formData, function (obj) {
@@ -701,21 +701,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        sendable.append(key, value);
 	                    });
 	                });
-	
+
 	                sendable.append(item.alias, item._file, item.file.name);
 	            } else {
 	                sendable = item._file;
 	            }
-	
+
 	            if (typeof item._file.size != 'number') {
 	                throw new TypeError('The file specified is no longer valid');
 	            }
-	
+
 	            xhr.upload.onprogress = function (event) {
 	                var progress = Math.round(event.lengthComputable ? event.loaded * 100 / event.total : 0);
 	                _this5._onProgressItem(item, progress);
 	            };
-	
+
 	            xhr.onload = function () {
 	                var headers = _this5._parseHeaders(xhr.getAllResponseHeaders());
 	                var response = _this5._transformResponse(xhr.response, headers);
@@ -724,29 +724,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	                _this5[method](item, response, xhr.status, headers);
 	                _this5._onCompleteItem(item, response, xhr.status, headers);
 	            };
-	
+
 	            xhr.onerror = function () {
 	                var headers = _this5._parseHeaders(xhr.getAllResponseHeaders());
 	                var response = _this5._transformResponse(xhr.response, headers);
 	                _this5._onErrorItem(item, response, xhr.status, headers);
 	                _this5._onCompleteItem(item, response, xhr.status, headers);
 	            };
-	
+
 	            xhr.onabort = function () {
 	                var headers = _this5._parseHeaders(xhr.getAllResponseHeaders());
 	                var response = _this5._transformResponse(xhr.response, headers);
 	                _this5._onCancelItem(item, response, xhr.status, headers);
 	                _this5._onCompleteItem(item, response, xhr.status, headers);
 	            };
-	
+
 	            xhr.open(item.method, item.url, true);
-	
+
 	            xhr.withCredentials = item.withCredentials;
-	
+
 	            forEach(item.headers, function (value, name) {
 	                xhr.setRequestHeader(name, value);
 	            });
-	
+
 	            xhr.send(sendable);
 	        };
 	        /**
@@ -754,20 +754,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {FileItem} item
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.prototype._iframeTransport = function _iframeTransport(item) {
 	            var _this6 = this;
-	
+
 	            var form = element('<form style="display: none;" />');
 	            var iframe = element('<iframe name="iframeTransport' + Date.now() + '">');
 	            var input = item._input;
-	
+
 	            if (item._form) item._form.replaceWith(input); // remove old form
 	            item._form = form; // save link to new form
-	
+
 	            input.prop('name', item.alias);
-	
+
 	            forEach(item.formData, function (obj) {
 	                forEach(obj, function (value, key) {
 	                    var element_ = element('<input type="hidden" name="' + key + '" />');
@@ -775,7 +775,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    form.append(element_);
 	                });
 	            });
-	
+
 	            form.prop({
 	                action: item.url,
 	                method: 'POST',
@@ -783,11 +783,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	                enctype: 'multipart/form-data',
 	                encoding: 'multipart/form-data' // old IE
 	            });
-	
+
 	            iframe.bind('load', function () {
 	                var html = '';
 	                var status = 200;
-	
+
 	                try {
 	                    // Fix for legacy IE browsers that loads internal error page
 	                    // when failed WS response received. In consequence iframe
@@ -799,7 +799,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    // from WS then response content can be accessed without error
 	                    // but 'XHR' status becomes 200. In order to avoid confusion
 	                    // returning response via same 'success' event handler.
-	
+
 	                    // fixed angular.contents() for iframes
 	                    html = iframe[0].contentDocument.body.innerHTML;
 	                } catch (e) {
@@ -807,30 +807,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    // (intentional 500,40... errors), we at least say 'something went wrong' -> 500
 	                    status = 500;
 	                }
-	
+
 	                var xhr = { response: html, status: status, dummy: true };
 	                var headers = {};
 	                var response = _this6._transformResponse(xhr.response, headers);
-	
+
 	                _this6._onSuccessItem(item, response, xhr.status, headers);
 	                _this6._onCompleteItem(item, response, xhr.status, headers);
 	            });
-	
+
 	            form.abort = function () {
 	                var xhr = { status: 0, dummy: true };
 	                var headers = {};
 	                var response;
-	
+
 	                iframe.unbind('load').prop('src', 'javascript:false;');
 	                form.replaceWith(input);
-	
+
 	                _this6._onCancelItem(item, response, xhr.status, headers);
 	                _this6._onCompleteItem(item, response, xhr.status, headers);
 	            };
-	
+
 	            input.after(form);
 	            form.append(input).append(iframe);
-	
+
 	            form[0].submit();
 	        };
 	        /**
@@ -840,8 +840,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Object} options
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.prototype._onWhenAddingFileFailed = function _onWhenAddingFileFailed(item, filter, options) {
 	            this.onWhenAddingFileFailed(item, filter, options);
 	        };
@@ -849,8 +849,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * Inner callback
 	         * @param {FileItem} item
 	         */
-	
-	
+
+
 	        FileUploader.prototype._onAfterAddingFile = function _onAfterAddingFile(item) {
 	            this.onAfterAddingFile(item);
 	        };
@@ -858,8 +858,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * Inner callback
 	         * @param {Array<FileItem>} items
 	         */
-	
-	
+
+
 	        FileUploader.prototype._onAfterAddingAll = function _onAfterAddingAll(items) {
 	            this.onAfterAddingAll(items);
 	        };
@@ -868,8 +868,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {FileItem} item
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.prototype._onBeforeUploadItem = function _onBeforeUploadItem(item) {
 	            item._onBeforeUpload();
 	            this.onBeforeUploadItem(item);
@@ -880,8 +880,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Number} progress
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.prototype._onProgressItem = function _onProgressItem(item, progress) {
 	            var total = this._getTotalProgress(progress);
 	            this.progress = total;
@@ -898,8 +898,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Object} headers
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.prototype._onSuccessItem = function _onSuccessItem(item, response, status, headers) {
 	            item._onSuccess(response, status, headers);
 	            this.onSuccessItem(item, response, status, headers);
@@ -912,8 +912,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Object} headers
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.prototype._onErrorItem = function _onErrorItem(item, response, status, headers) {
 	            item._onError(response, status, headers);
 	            this.onErrorItem(item, response, status, headers);
@@ -926,8 +926,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Object} headers
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.prototype._onCancelItem = function _onCancelItem(item, response, status, headers) {
 	            item._onCancel(response, status, headers);
 	            this.onCancelItem(item, response, status, headers);
@@ -940,20 +940,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Object} headers
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.prototype._onCompleteItem = function _onCompleteItem(item, response, status, headers) {
 	            item._onComplete(response, status, headers);
 	            this.onCompleteItem(item, response, status, headers);
-	
+
 	            var nextItem = this.getReadyItems()[0];
 	            this.isUploading = false;
-	
+
 	            if (isDefined(nextItem)) {
 	                nextItem.upload();
 	                return;
 	            }
-	
+
 	            this.onCompleteAll();
 	            this.progress = this._getTotalProgress();
 	            this._render();
@@ -967,8 +967,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @returns {Boolean}
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.isFile = function isFile(value) {
 	            return File && value instanceof File;
 	        };
@@ -978,8 +978,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @returns {Boolean}
 	         * @private
 	         */
-	
-	
+
+
 	        FileUploader.isFileLikeObject = function isFileLikeObject(value) {
 	            return value instanceof FileLikeObject;
 	        };
@@ -988,8 +988,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {*} value
 	         * @returns {Boolean}
 	         */
-	
-	
+
+
 	        FileUploader.isArrayLikeObject = function isArrayLikeObject(value) {
 	            return isObject(value) && 'length' in value;
 	        };
@@ -998,17 +998,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Function} target
 	         * @param {Function} source
 	         */
-	
-	
+
+
 	        FileUploader.inherit = function inherit(target, source) {
 	            target.prototype = Object.create(source.prototype);
 	            target.prototype.constructor = target;
 	            target.super_ = source;
 	        };
-	
+
 	        return FileUploader;
 	    }();
-	
+
 	    /**********************
 	     * PUBLIC
 	     **********************/
@@ -1017,8 +1017,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @returns {Boolean}
 	     * @readonly
 	     */
-	
-	
+
+
 	    FileUploader.prototype.isHTML5 = !!(File && FormData);
 	    /**********************
 	     * STATIC
@@ -1027,10 +1027,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @borrows FileUploader.prototype.isHTML5
 	     */
 	    FileUploader.isHTML5 = FileUploader.prototype.isHTML5;
-	
+
 	    return FileUploader;
 	}
-	
+
 	__identity.$inject = ['fileUploaderOptions', '$rootScope', '$http', '$window', '$timeout', 'FileLikeObject', 'FileItem'];
 
 /***/ },
@@ -1038,36 +1038,36 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.default = __identity;
-	
+	exports['default'] = __identity;
+
 	var _config = __webpack_require__(1);
-	
+
 	var _config2 = _interopRequireDefault(_config);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	var _angular = angular;
 	var copy = _angular.copy;
 	var isElement = _angular.isElement;
 	var isString = _angular.isString;
 	function __identity() {
-	
+
 	    return function () {
 	        /**
 	         * Creates an instance of FileLikeObject
 	         * @param {File|HTMLInputElement|Object} fileOrInput
 	         * @constructor
 	         */
-	
+
 	        function FileLikeObject(fileOrInput) {
 	            _classCallCheck(this, FileLikeObject);
-	
+
 	            var isInput = isElement(fileOrInput);
 	            var fakePathOrObject = isInput ? fileOrInput.value : fileOrInput;
 	            var postfix = isString(fakePathOrObject) ? 'FakePath' : 'Object';
@@ -1079,8 +1079,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {String} path
 	         * @private
 	         */
-	
-	
+
+
 	        FileLikeObject.prototype._createFromFakePath = function _createFromFakePath(path) {
 	            this.lastModifiedDate = null;
 	            this.size = null;
@@ -1092,15 +1092,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {File|FileLikeObject} object
 	         * @private
 	         */
-	
-	
+
+
 	        FileLikeObject.prototype._createFromObject = function _createFromObject(object) {
 	            this.lastModifiedDate = copy(object.lastModifiedDate);
 	            this.size = object.size;
 	            this.type = object.type;
 	            this.name = object.name;
 	        };
-	
+
 	        return FileLikeObject;
 	    }();
 	}
@@ -1110,27 +1110,27 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.default = __identity;
-	
+	exports['default'] = __identity;
+
 	var _config = __webpack_require__(1);
-	
+
 	var _config2 = _interopRequireDefault(_config);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	var _angular = angular;
 	var copy = _angular.copy;
 	var extend = _angular.extend;
 	var element = _angular.element;
 	var isElement = _angular.isElement;
 	function __identity($compile, FileLikeObject) {
-	
+
 	    return function () {
 	        /**
 	         * Creates an instance of FileItem
@@ -1139,14 +1139,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Object} options
 	         * @constructor
 	         */
-	
+
 	        function FileItem(uploader, some, options) {
 	            _classCallCheck(this, FileItem);
-	
+
 	            var isInput = isElement(some);
 	            var input = isInput ? element(some) : null;
 	            var file = !isInput ? some : null;
-	
+
 	            extend(this, {
 	                url: uploader.url,
 	                alias: uploader.alias,
@@ -1170,7 +1170,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                _file: file,
 	                _input: input
 	            });
-	
+
 	            if (input) this._replaceNode(input);
 	        }
 	        /**********************
@@ -1179,8 +1179,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * Uploads a FileItem
 	         */
-	
-	
+
+
 	        FileItem.prototype.upload = function upload() {
 	            try {
 	                this.uploader.uploadItem(this);
@@ -1192,16 +1192,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * Cancels uploading of FileItem
 	         */
-	
-	
+
+
 	        FileItem.prototype.cancel = function cancel() {
 	            this.uploader.cancelItem(this);
 	        };
 	        /**
 	         * Removes a FileItem
 	         */
-	
-	
+
+
 	        FileItem.prototype.remove = function remove() {
 	            this.uploader.removeFromQueue(this);
 	        };
@@ -1209,16 +1209,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * Callback
 	         * @private
 	         */
-	
-	
+
+
 	        FileItem.prototype.onBeforeUpload = function onBeforeUpload() {};
 	        /**
 	         * Callback
 	         * @param {Number} progress
 	         * @private
 	         */
-	
-	
+
+
 	        FileItem.prototype.onProgress = function onProgress(progress) {};
 	        /**
 	         * Callback
@@ -1226,8 +1226,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Number} status
 	         * @param {Object} headers
 	         */
-	
-	
+
+
 	        FileItem.prototype.onSuccess = function onSuccess(response, status, headers) {};
 	        /**
 	         * Callback
@@ -1235,8 +1235,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Number} status
 	         * @param {Object} headers
 	         */
-	
-	
+
+
 	        FileItem.prototype.onError = function onError(response, status, headers) {};
 	        /**
 	         * Callback
@@ -1244,8 +1244,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Number} status
 	         * @param {Object} headers
 	         */
-	
-	
+
+
 	        FileItem.prototype.onCancel = function onCancel(response, status, headers) {};
 	        /**
 	         * Callback
@@ -1253,8 +1253,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Number} status
 	         * @param {Object} headers
 	         */
-	
-	
+
+
 	        FileItem.prototype.onComplete = function onComplete(response, status, headers) {};
 	        /**********************
 	         * PRIVATE
@@ -1262,8 +1262,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * Inner callback
 	         */
-	
-	
+
+
 	        FileItem.prototype._onBeforeUpload = function _onBeforeUpload() {
 	            this.isReady = true;
 	            this.isUploading = false;
@@ -1279,8 +1279,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Number} progress
 	         * @private
 	         */
-	
-	
+
+
 	        FileItem.prototype._onProgress = function _onProgress(progress) {
 	            this.progress = progress;
 	            this.onProgress(progress);
@@ -1292,8 +1292,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Object} headers
 	         * @private
 	         */
-	
-	
+
+
 	        FileItem.prototype._onSuccess = function _onSuccess(response, status, headers) {
 	            this.isReady = false;
 	            this.isUploading = false;
@@ -1312,8 +1312,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Object} headers
 	         * @private
 	         */
-	
-	
+
+
 	        FileItem.prototype._onError = function _onError(response, status, headers) {
 	            this.isReady = false;
 	            this.isUploading = false;
@@ -1332,8 +1332,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Object} headers
 	         * @private
 	         */
-	
-	
+
+
 	        FileItem.prototype._onCancel = function _onCancel(response, status, headers) {
 	            this.isReady = false;
 	            this.isUploading = false;
@@ -1352,8 +1352,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Object} headers
 	         * @private
 	         */
-	
-	
+
+
 	        FileItem.prototype._onComplete = function _onComplete(response, status, headers) {
 	            this.onComplete(response, status, headers);
 	            if (this.removeAfterUpload) this.remove();
@@ -1361,8 +1361,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * Destroys a FileItem
 	         */
-	
-	
+
+
 	        FileItem.prototype._destroy = function _destroy() {
 	            if (this._input) this._input.remove();
 	            if (this._form) this._form.remove();
@@ -1373,8 +1373,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * Prepares to uploading
 	         * @private
 	         */
-	
-	
+
+
 	        FileItem.prototype._prepareToUploading = function _prepareToUploading() {
 	            this.index = this.index || ++this.uploader._nextIndex;
 	            this.isReady = true;
@@ -1384,19 +1384,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {JQLite|jQuery} input
 	         * @private
 	         */
-	
-	
+
+
 	        FileItem.prototype._replaceNode = function _replaceNode(input) {
 	            var clone = $compile(input.clone())(input.scope());
 	            clone.prop('value', null); // FF fix
 	            input.css('display', 'none');
 	            input.after(clone); // remove jquery dependency
 	        };
-	
+
 	        return FileItem;
 	    }();
 	}
-	
+
 	__identity.$inject = ['$compile', 'FileLikeObject'];
 
 /***/ },
@@ -1404,20 +1404,20 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.default = __identity;
-	
+	exports['default'] = __identity;
+
 	var _config = __webpack_require__(1);
-	
+
 	var _config2 = _interopRequireDefault(_config);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	var _angular = angular;
 	var extend = _angular.extend;
 	function __identity() {
@@ -1431,10 +1431,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {String} options.prop
 	         * @constructor
 	         */
-	
+
 	        function FileDirective(options) {
 	            _classCallCheck(this, FileDirective);
-	
+
 	            extend(this, options);
 	            this.uploader._directives[this.prop].push(this);
 	            this._saveLinks();
@@ -1443,8 +1443,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * Binds events handles
 	         */
-	
-	
+
+
 	        FileDirective.prototype.bind = function bind() {
 	            for (var key in this.events) {
 	                var prop = this.events[key];
@@ -1454,8 +1454,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * Unbinds events handles
 	         */
-	
-	
+
+
 	        FileDirective.prototype.unbind = function unbind() {
 	            for (var key in this.events) {
 	                this.element.unbind(key, this.events[key]);
@@ -1464,8 +1464,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * Destroys directive
 	         */
-	
-	
+
+
 	        FileDirective.prototype.destroy = function destroy() {
 	            var index = this.uploader._directives[this.prop].indexOf(this);
 	            this.uploader._directives[this.prop].splice(index, 1);
@@ -1476,26 +1476,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * Saves links to functions
 	         * @private
 	         */
-	
-	
+
+
 	        FileDirective.prototype._saveLinks = function _saveLinks() {
 	            for (var key in this.events) {
 	                var prop = this.events[key];
 	                this[prop] = this[prop].bind(this);
 	            }
 	        };
-	
+
 	        return FileDirective;
 	    }();
-	
+
 	    /**
 	     * Map of events
 	     * @type {Object}
 	     */
-	
-	
+
+
 	    FileDirective.prototype.events = {};
-	
+
 	    return FileDirective;
 	}
 
@@ -1504,40 +1504,40 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.default = __identity;
-	
+	exports['default'] = __identity;
+
 	var _config = __webpack_require__(1);
-	
+
 	var _config2 = _interopRequireDefault(_config);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _angular = angular;
 	var extend = _angular.extend;
 	function __identity($compile, FileDirective) {
-	
+
 	    return function (_FileDirective) {
 	        _inherits(FileSelect, _FileDirective);
-	
+
 	        /**
 	         * Creates instance of {FileSelect} object
 	         * @param {Object} options
 	         * @constructor
 	         */
-	
+
 	        function FileSelect(options) {
 	            _classCallCheck(this, FileSelect);
-	
+
 	            var extendedOptions = extend(options, {
 	                // Map of events
 	                events: {
@@ -1547,9 +1547,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	                // Name of property inside uploader._directive object
 	                prop: 'select'
 	            });
-	
+
 	            var _this = _possibleConstructorReturn(this, _FileDirective.call(this, extendedOptions));
-	
+
 	            if (!_this.uploader.isHTML5) {
 	                _this.element.removeAttr('multiple');
 	            }
@@ -1560,35 +1560,35 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * Returns options
 	         * @return {Object|undefined}
 	         */
-	
-	
+
+
 	        FileSelect.prototype.getOptions = function getOptions() {};
 	        /**
 	         * Returns filters
 	         * @return {Array<Function>|String|undefined}
 	         */
-	
-	
+
+
 	        FileSelect.prototype.getFilters = function getFilters() {};
 	        /**
 	         * If returns "true" then HTMLInputElement will be cleared
 	         * @returns {Boolean}
 	         */
-	
-	
+
+
 	        FileSelect.prototype.isEmptyAfterSelection = function isEmptyAfterSelection() {
 	            return !!this.element.attr('multiple');
 	        };
 	        /**
 	         * Event handler
 	         */
-	
-	
+
+
 	        FileSelect.prototype.onChange = function onChange() {
 	            var files = this.uploader.isHTML5 ? this.element[0].files : this.element[0];
 	            var options = this.getOptions();
 	            var filters = this.getFilters();
-	
+
 	            if (!this.uploader.isHTML5) this.destroy();
 	            this.uploader.addToQueue(files, options, filters);
 	            if (this.isEmptyAfterSelection()) {
@@ -1596,11 +1596,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	                this.element.replaceWith($compile(this.element.clone())(this.scope)); // IE fix
 	            }
 	        };
-	
+
 	        return FileSelect;
 	    }(FileDirective);
 	}
-	
+
 	__identity.$inject = ['$compile', 'FileDirective'];
 
 /***/ },
@@ -1608,41 +1608,41 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.default = __identity;
-	
+	exports['default'] = __identity;
+
 	var _config = __webpack_require__(1);
-	
+
 	var _config2 = _interopRequireDefault(_config);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _angular = angular;
 	var extend = _angular.extend;
 	var forEach = _angular.forEach;
 	function __identity(FileDirective) {
-	
+
 	    return function (_FileDirective) {
 	        _inherits(FileDrop, _FileDirective);
-	
+
 	        /**
 	         * Creates instance of {FileDrop} object
 	         * @param {Object} options
 	         * @constructor
 	         */
-	
+
 	        function FileDrop(options) {
 	            _classCallCheck(this, FileDrop);
-	
+
 	            var extendedOptions = extend(options, {
 	                // Map of events
 	                events: {
@@ -1654,28 +1654,28 @@ return /******/ (function(modules) { // webpackBootstrap
 	                // Name of property inside uploader._directive object
 	                prop: 'drop'
 	            });
-	
+
 	            return _possibleConstructorReturn(this, _FileDirective.call(this, extendedOptions));
 	        }
 	        /**
 	         * Returns options
 	         * @return {Object|undefined}
 	         */
-	
-	
+
+
 	        FileDrop.prototype.getOptions = function getOptions() {};
 	        /**
 	         * Returns filters
 	         * @return {Array<Function>|String|undefined}
 	         */
-	
-	
+
+
 	        FileDrop.prototype.getFilters = function getFilters() {};
 	        /**
 	         * Event handler
 	         */
-	
-	
+
+
 	        FileDrop.prototype.onDrop = function onDrop(event) {
 	            var transfer = this._getTransfer(event);
 	            if (!transfer) return;
@@ -1688,8 +1688,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * Event handler
 	         */
-	
-	
+
+
 	        FileDrop.prototype.onDragOver = function onDragOver(event) {
 	            var transfer = this._getTransfer(event);
 	            if (!this._haveFiles(transfer.types)) return;
@@ -1700,8 +1700,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * Event handler
 	         */
-	
-	
+
+
 	        FileDrop.prototype.onDragLeave = function onDragLeave(event) {
 	            if (event.currentTarget === this.element[0]) return;
 	            this._preventAndStop(event);
@@ -1710,16 +1710,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * Helper
 	         */
-	
-	
+
+
 	        FileDrop.prototype._getTransfer = function _getTransfer(event) {
 	            return event.dataTransfer ? event.dataTransfer : event.originalEvent.dataTransfer; // jQuery fix;
 	        };
 	        /**
 	         * Helper
 	         */
-	
-	
+
+
 	        FileDrop.prototype._preventAndStop = function _preventAndStop(event) {
 	            event.preventDefault();
 	            event.stopPropagation();
@@ -1728,8 +1728,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * Returns "true" if types contains files
 	         * @param {Object} types
 	         */
-	
-	
+
+
 	        FileDrop.prototype._haveFiles = function _haveFiles(types) {
 	            if (!types) return false;
 	            if (types.indexOf) {
@@ -1743,24 +1743,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * Callback
 	         */
-	
-	
+
+
 	        FileDrop.prototype._addOverClass = function _addOverClass(item) {
 	            item.addOverClass();
 	        };
 	        /**
 	         * Callback
 	         */
-	
-	
+
+
 	        FileDrop.prototype._removeOverClass = function _removeOverClass(item) {
 	            item.removeOverClass();
 	        };
-	
+
 	        return FileDrop;
 	    }(FileDirective);
 	}
-	
+
 	__identity.$inject = ['FileDirective'];
 
 /***/ },
@@ -1768,40 +1768,40 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.default = __identity;
-	
+	exports['default'] = __identity;
+
 	var _config = __webpack_require__(1);
-	
+
 	var _config2 = _interopRequireDefault(_config);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
+
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
+
 	var _angular = angular;
 	var extend = _angular.extend;
 	function __identity(FileDirective) {
-	
+
 	    return function (_FileDirective) {
 	        _inherits(FileOver, _FileDirective);
-	
+
 	        /**
 	         * Creates instance of {FileDrop} object
 	         * @param {Object} options
 	         * @constructor
 	         */
-	
+
 	        function FileOver(options) {
 	            _classCallCheck(this, FileOver);
-	
+
 	            var extendedOptions = extend(options, {
 	                // Map of events
 	                events: {
@@ -1812,22 +1812,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	                // Over class
 	                overClass: 'nv-file-over'
 	            });
-	
+
 	            return _possibleConstructorReturn(this, _FileDirective.call(this, extendedOptions));
 	        }
 	        /**
 	         * Adds over class
 	         */
-	
-	
+
+
 	        FileOver.prototype.addOverClass = function addOverClass() {
 	            this.element.addClass(this.getOverClass());
 	        };
 	        /**
 	         * Removes over class
 	         */
-	
-	
+
+
 	        FileOver.prototype.removeOverClass = function removeOverClass() {
 	            this.element.removeClass(this.getOverClass());
 	        };
@@ -1835,16 +1835,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * Returns over class
 	         * @returns {String}
 	         */
-	
-	
+
+
 	        FileOver.prototype.getOverClass = function getOverClass() {
 	            return this.overClass;
 	        };
-	
+
 	        return FileOver;
 	    }(FileDirective);
 	}
-	
+
 	__identity.$inject = ['FileDirective'];
 
 /***/ },
@@ -1852,34 +1852,34 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.default = __identity;
-	
+	exports['default'] = __identity;
+
 	var _config = __webpack_require__(1);
-	
+
 	var _config2 = _interopRequireDefault(_config);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
 	function __identity($parse, FileUploader, FileSelect) {
-	
+
 	    return {
 	        link: function link(scope, element, attributes) {
 	            var uploader = scope.$eval(attributes.uploader);
-	
+
 	            if (!(uploader instanceof FileUploader)) {
 	                throw new TypeError('"Uploader" must be an instance of FileUploader');
 	            }
-	
+
 	            var object = new FileSelect({
 	                uploader: uploader,
 	                element: element,
 	                scope: scope
 	            });
-	
+
 	            object.getOptions = $parse(attributes.options).bind(object, scope);
 	            object.getFilters = function () {
 	                return attributes.filters;
@@ -1887,7 +1887,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 	}
-	
+
 	__identity.$inject = ['$parse', 'FileUploader', 'FileSelect'];
 
 /***/ },
@@ -1895,35 +1895,35 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.default = __identity;
-	
+	exports['default'] = __identity;
+
 	var _config = __webpack_require__(1);
-	
+
 	var _config2 = _interopRequireDefault(_config);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
 	function __identity($parse, FileUploader, FileDrop) {
-	
+
 	    return {
 	        link: function link(scope, element, attributes) {
 	            var uploader = scope.$eval(attributes.uploader);
-	
+
 	            if (!(uploader instanceof FileUploader)) {
 	                throw new TypeError('"Uploader" must be an instance of FileUploader');
 	            }
-	
+
 	            if (!uploader.isHTML5) return;
-	
+
 	            var object = new FileDrop({
 	                uploader: uploader,
 	                element: element
 	            });
-	
+
 	            object.getOptions = $parse(attributes.options).bind(object, scope);
 	            object.getFilters = function () {
 	                return attributes.filters;
@@ -1931,7 +1931,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 	}
-	
+
 	__identity.$inject = ['$parse', 'FileUploader', 'FileDrop'];
 
 /***/ },
@@ -1939,40 +1939,40 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.default = __identity;
-	
+	exports['default'] = __identity;
+
 	var _config = __webpack_require__(1);
-	
+
 	var _config2 = _interopRequireDefault(_config);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
 	function __identity(FileUploader, FileOver) {
-	
+
 	    return {
 	        link: function link(scope, element, attributes) {
 	            var uploader = scope.$eval(attributes.uploader);
-	
+
 	            if (!(uploader instanceof FileUploader)) {
 	                throw new TypeError('"Uploader" must be an instance of FileUploader');
 	            }
-	
+
 	            var object = new FileOver({
 	                uploader: uploader,
 	                element: element
 	            });
-	
+
 	            object.getOverClass = function () {
 	                return attributes.overClass || object.overClass;
 	            };
 	        }
 	    };
 	}
-	
+
 	__identity.$inject = ['FileUploader', 'FileOver'];
 
 /***/ }
